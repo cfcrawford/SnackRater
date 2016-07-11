@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-app="snackRater">
+    <div class="row" ng-controller="SnackCtrl">
+      <h1>SnackRater</h1><p>...because snacking is too important to go unrated</p>
+      <img src="https://circleuponline.files.wordpress.com/2012/03/salty-snacks.jpg">
+      <h3>Snack: {{ snack.name }}</h3>
+      <span>Enter a snack:</span>
+      <input ng-model="snack.name"/>
+      <span>Enter snack type:</span>
+      <input ng-model="snack.type"/>
+      <span>Enter snack category:</span>
+      <input ng-model="snack.category"/>
+      <div class="col-md-4">
+      <table class="table table-striped">
+        <div>
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+            <th>Category</th>
+          </tr>
+          <tbody>
+            <tr ng-repeat="snack in snacks">
+              <td>{{snack.name}}</td>
+              <td>{{snack.type}}</td>
+              <td>{{snack.category}}</td>
+              <td><button ng-click="value.count = value.count +1">+1</button>{{snack.count}}</td>
+            </tr>
+          </tbody>
+        </thead>
+        </div>
+      </table>
+</div>
+      <!-- <ul>
+        <li ng-repeat="snack in snacks">{{snack.name}}</li>
+        <li ng-repeat="snack in snacks">{{snack.type}}</li>
+        <li ng-repeat="snack in snacks">{{snack.category}}</li>
+      </ul> -->
+
+      <!-- <pre>{{ snack | json }}</pre> -->
+    </div>
+  </body>
+</html>
